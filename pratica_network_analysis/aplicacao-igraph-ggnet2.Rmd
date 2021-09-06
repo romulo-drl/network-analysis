@@ -25,10 +25,10 @@ Outra fonte incrível pro igraph
 ```{r}
 
 # Casos e conexões (Nodes, Edges)
-primary_school <- read_csv('network-analysis-practice/igraph/primaryschool.csv') 
+primary_school <- read_csv('primaryschool.csv') 
 
 # Nodos e características sociodemográficas  
-metadata <- read_csv("network-analysis-practice/igraph/metadata_primaryschool.csv")
+metadata <- read_csv("metadata_primaryschool.csv")
   
 ```
 
@@ -390,7 +390,7 @@ ggnet2(net, size = "degree")
 ```
 
 ```{r}
-
+save.image('aplicacao-igraph-ggnet.RData')
 ```
 
 
