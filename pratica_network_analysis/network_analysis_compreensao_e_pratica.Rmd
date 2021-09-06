@@ -1,0 +1,160 @@
+---
+title: "Network Analysis"
+author: "Rômulo Damasceno"
+date: "9/4/2021"
+output: html_document
+---
+
+### What is a network, concepts and theories
+
+Operational definition:
+
+A collection of points, joined together by lines, the complex and large networks are basically that times X.
+
+**The dots are called [Nodes or Vertex]{.ul}**
+
+**The lines are called [Lines or Edges]{.ul}**
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-D450258F.png)
+
+> Person \> Friendship
+
+**Big data analytics and social networks theory**
+
+The field of [social networks theory]{.ul} is moving towards general network sciences, by using big data to recognize the relationship between individuals without having to rely on surveys, which are more expensive and less practical to use.
+
+-   Grandjean's (founder of the software Gaphi) twitter network
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-FF3A46C6.png)
+
+### The idea of a core in social networks
+
+Nodes which concentrate the most power within the network, the ones which are more in the center, and connect many other nodes or groups.
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-DB77E3A2.png)
+
+**Egonetworks -** Those that deal with individuals and their relationships of any sort, being represented by a focal node (ego) and its connections (ties) among the alters.
+
+**Social relations:**
+
+Ego and alters are tied to each other by social relations such as:
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-2CFADB75.png)
+
+### **Neural networks**
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-60563222.png)
+
+Artificial networks created inspired by the way an animal brain works. (...)
+
+### Structure of network data
+
+#### Node list and edge list
+
+To the nodes, which are the singular cases that establish relationships with each other, we can give other types of attributes, for example: gender, age and grade (simple SQL format)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-CBAB3AEA.png)
+
+#### Edge lists:
+
+Pairs of relationships between nodes. They can also have attributes, such as weights for example, which would define the intensity of the relationship.
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-E60E98F8.png)
+
+### (Most Important) Adjacency matrix
+
+A representation of the individuals which establish relationships one with the other. It has 1 if there's a connection and 0 if there isn't.
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-D59E49D1.png)
+
+**If it applies, the 1's and 0's can be replaced by the weights.**
+
+Once we have an edge list or an adjacent matrix, we can create our visualizations, or data (?)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-5ED4C905.png)
+
+### Undirected vs Directed network
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-227BA169.png)
+
+Basically the order here matters, which is very logical.
+
+#### Edge list and adjacency matrix representations
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-BE345611.png)
+
+#### Weighted vs Unweighted network
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-287ADAA9.png)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-A803B425.png)
+
+### Non-bipartite vs Bipartite network
+
+The edge list is the same, the adjacency matrix changes slightly. What I don't understand is why are the nodes coloured differently? Are the i values a group or something?
+
+Also, these types of adjacency matrices are called **"Instant matrices"**
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-11FCF02C.png)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-4CEA4F49.png)
+
+Okay so he said that J's are people and I's are events. As these types of networks don't allow interrelationships, we can only approximate the interactions by analysis people who suffered from the same events or events that would include the same people, which is what is represented in the figure above.
+
+**Bipartite networks are VERY important to social networks analysis actually. They allow us to create new relationships that did not exist at first based on similar characteristics, kind of similarly to cluster analysis in stats.**
+
+### Measures of centrality
+
+Centrality means the [**power or strenght of each node within the network**]{.ul}
+
+#### Degree:
+
+Number of edges linked to each vertex (node)
+
+-   Undirected networks only have one type of degree.
+
+-   Directed networks have in-degree and out-degree
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-32B2BFE2.png)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-95A6CDA6.png)
+
+The size of the nodes are correspondent to their number of connections, which also makes a lot of sense.
+
+#### Eigenvector centrality
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-E4127E6F.png)
+
+Because some nodes can establish relationships with more powerful (higher degree centrality), they also become more influential in the network; that is what eigenvector centrality accounts for.
+
+This actually shifts your perspective quite a bit. At first we would expect 1 and 2 to be radically less powerful than 4. While that still is the case, when we consider Eigenvector Centrality, they become rather more influential.
+
+#### Betweenness centrality (Gatekeepers)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-E2052A7F.png)
+
+While the yellow vertex has very low degree centrality, it has an incredibly high betweenes, given that it is the only node that connects the flow of information passing between both networks.
+
+### Measures of the network structure
+
+#### Network density
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-B515F960.png)
+
+#### Assortativity
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-19FB8181.png)
+
+-1 Means these vertices have tendency to connect to others of a different type
+
+1 Means the opposite.
+
+### Community detection (INSANE)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-97A90226.png)
+
+The communities are identified when the observed graph is significantly different from anothers randomly generated (vertices and edges sorted by chance) - It's basically a statistical test, but with graphs. It's almost like a K-means algorythm
+
+##### Louvain method (see more later)
+
+![](C:/Users/romul/AppData/Local/RStudio/tmp/paste-013CACE8.png)
